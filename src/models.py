@@ -84,10 +84,10 @@ class Films(db.Model):
     
 class Favorites(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
-    planets_id = db.Column(db.Integer, db.ForeignKey("planets.id"))
-    character_id = db.Column(db.Integer, db.ForeignKey("character.id"))
-    films_id = db.Column(db.Integer, db.ForeignKey("films.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    planets_id = db.Column(db.Integer, db.ForeignKey("planets.id"), nullable=True)
+    character_id = db.Column(db.Integer, db.ForeignKey("character.id"), nullable=True)
+    films_id = db.Column(db.Integer, db.ForeignKey("films.id"), nullable=True)
 
     def __repr__(self):
         return '<Favorites %r>' % self.id
